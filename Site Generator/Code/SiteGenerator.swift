@@ -8,7 +8,7 @@ public struct SiteGenerator
     {
         do
         {
-            let siteFolderPath = "/Users/seb/Desktop/GitHub Repos/Codeface/docs"
+            let siteFolderPath = "/Users/seb/Desktop/GitHub Repos/codeface-io.github.io"
             let siteFolder = try SiteFolder(path: siteFolderPath)
             
             try generateRootPage(siteFolder: siteFolder)
