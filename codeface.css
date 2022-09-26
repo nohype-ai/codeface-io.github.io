@@ -175,7 +175,8 @@ section.codeface-bar > div
     display: inline-block;
     
     height: 62px;
-    width: 60px;
+    padding-top: 17px;
+    padding-right: 25px;
 }
 
 .left {
@@ -198,13 +199,17 @@ section.codeface-bar > div
 }
 
 @media only screen and (max-width: 570px) {
-    #call-to-action {
-        display: none;
+    #logo {
+        padding-right: 10px;
     }
     
     .left {
         padding-left: 10px;
         padding-right: 10px;
+    }
+    
+    #call-to-action {
+        display: none;
     }
 }
 
