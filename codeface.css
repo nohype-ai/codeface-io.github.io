@@ -213,8 +213,20 @@ section.codeface-bar > div
 #codeface-bottom-bar
 {
     padding: 0px;
-    height: 62px;
     color: gray;
+}
+
+#codeface-bottom-bar > div
+{
+    display: grid;
+    grid-template-columns: 40% auto 40%;
+    grid-column-gap: 10px;
+}
+
+.bottom-bar-text-element
+{
+    padding-top: 18px;
+    padding-bottom: 16px;
 }
 
 #codeface-bottom-bar a
