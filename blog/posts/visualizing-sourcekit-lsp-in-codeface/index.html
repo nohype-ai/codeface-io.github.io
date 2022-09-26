@@ -13,17 +13,17 @@
         <meta property="og:locale:alternate" content="de_DE">
         
         <!-- Title -->
-        <title>Visualizing Apple's <nobr>SourceKit-LSP</nobr> <nobr>in Codeface</nobr></title>
-        <meta name="twitter:title" content="Visualizing Apple's <nobr>SourceKit-LSP</nobr> <nobr>in Codeface</nobr>"/>
-        <meta property="og:title" content="Visualizing Apple's <nobr>SourceKit-LSP</nobr> <nobr>in Codeface</nobr>"/>
-        <meta property="og:site_name" content="Visualizing Apple's <nobr>SourceKit-LSP</nobr> <nobr>in Codeface</nobr>"/>
+        <title>Showcase: <nobr>The Architecture</nobr> <nobr>of Apple's</nobr> <nobr>LSP Server</nobr></title>
+        <meta name="twitter:title" content="Showcase: <nobr>The Architecture</nobr> <nobr>of Apple's</nobr> <nobr>LSP Server</nobr>"/>
+        <meta property="og:title" content="Showcase: <nobr>The Architecture</nobr> <nobr>of Apple's</nobr> <nobr>LSP Server</nobr>"/>
+        <meta property="og:site_name" content="Showcase: <nobr>The Architecture</nobr> <nobr>of Apple's</nobr> <nobr>LSP Server</nobr>"/>
 
         <!-- Author -->
         <meta name="author" content="Sebastian Fichtner"/>
 
         <!-- Description -->
-        <meta name="description" content="In this showcase, we visualized 19 top-level scopes of Apple's open-source LSP server in Codeface."/>
-        <meta property="og:description" content="In this showcase, we visualized 19 top-level scopes of Apple's open-source LSP server in Codeface."/>
+        <meta name="description" content="Visualizations of 20 top-level scopes in Apple's open-source LSP server. Download the .codebase file to open the project yourself in Codeface."/>
+        <meta property="og:description" content="Visualizations of 20 top-level scopes in Apple's open-source LSP server. Download the .codebase file to open the project yourself in Codeface."/>
 
         <!-- Keywords -->
         <meta name="keywords" content="macOS, Swift, software architecture, app, codeface, codebase"/>
@@ -71,107 +71,118 @@
         
         <section>
             <div>
-                <h1 style="margin-bottom:30px">Visualizing Apple's <nobr>SourceKit-LSP</nobr> <nobr>in Codeface</nobr></h1>
+                <h1 style="margin-bottom:30px">Showcase: <nobr>The Architecture</nobr> <nobr>of Apple's</nobr> <nobr>LSP Server</nobr></h1>
         
                 <p style="text-align:center" class="secondary-text-color">
                     September 12, 2022 • Sebastian Fichtner
                 </p>
         
                 <p>
-                Here are 19 scopes in <a href="https://github.com/apple/sourcekit-lsp">Apple's LSP server</a> visualized with the <a href="../index.html">Codeface.io</a> app. We see their hierarchical composition and <a href="https://en.wikipedia.org/wiki/Transitive_reduction">essential</a> dependencies.
+                Here are 20 scopes in <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server</a> visualized with the <a href="../../../index.html">Codeface.io</a> app. We see their hierarchical composition, <a href="https://en.wikipedia.org/wiki/Transitive_reduction" target="_blank">essential</a> dependencies, <a href="https://en.wikipedia.org/wiki/Strongly_connected_component" target="_blank">cyclic</a> dependencies and <a href="https://en.wikipedia.org/wiki/Topological_sorting" target="_blank">control flow</a>.
                 </p>
                 
                 <p>
-                Artifacts over which the mouse hovers have blue borders and blue ingoing and outgoing dependencies. But the mouse is invisible in these images.
+                Artifacts over which the mouse hovers have blue borders and blue ingoing and outgoing dependencies. Cyclic dependencies are red. Also, the border color of an artifact indicates how entangled its elements are in cycles.
                 </p>
                 
                 <p>
-                Cyclic dependencies are red. The border color of an artifact indicates how entangled its elements are in cycles. Overall, the codebase looks pretty clean.
+                You can explore the visual architecture of this project yourself – without any setup of LSP servers: Just <a href="SourceKit-LSP.zip" download>download the project's .codebase file here</a> and open it in Codeface. If don't have the Codeface app yet, it's available for free <a href="https://apps.apple.com/app/codeface/id1578175415"
+                    target="_blank">in the macOS App Store</a>.
                 </p>
                 
                 <h2>Big Big Overview</h2>
                 
-                <img style="width:100%" src="images/01.png"></img>
+                <p>
+                    <img src="images/01.png"></img>
+                </p>
                 
-                <br><br>
-                
-                <img style="width:100%" src="images/02.png"></img>
+                <p>
+                    <img src="images/02.png"></img>
+                </p>
                 
                 <h2>Zoning in On Search Term "symbol"</h2>
                 
-                <img style="width:100%" src="images/02b.png"></img>
+                <p>
+                    <img src="images/02b.png"></img>
+                </p>
                 
-                <br><br>
+                <p>
+                    <img src="images/02c.png"></img>
+                </p>
                 
-                <img style="width:100%" src="images/02c.png"></img>
+                <h2>18 More Scopes</h2>
                 
-                <h2>17 More Scopes</h2>
+                <p>
+                    <img src="images/03.png"></img>
+                </p>
                 
-                <img style="width:100%" src="images/03.png"></img>
+                <p>
+                    <img src="images/04.png"></img>
+                </p>
                 
-                <br><br>
+                <p>
+                    <img src="images/05.png"></img>
+                </p>
                 
-                <img style="width:100%" src="images/04.png"></img>
+                <p>
+                    <img src="images/06.png"></img>
+                </p>
                 
-                <br><br>
+                <p>
+                    <img src="images/07.png"></img>
+                </p>
                 
-                <img style="width:100%" src="images/05.png"></img>
+                <p>
+                    <img src="images/08.png"></img>
+                </p>
                 
-                <br><br>
+                <p>
+                    <img src="images/09.png"></img>
+                </p>
                 
-                <img style="width:100%" src="images/06.png"></img>
+                <p>
+                    <img src="images/10.png"></img>
+                </p>
                 
-                <br><br>
+                <p>
+                    <img src="images/11.png"></img>
+                </p>
                 
-                <img style="width:100%" src="images/07.png"></img>
+                <p>
+                    <img src="images/12.png"></img>
+                </p>
                 
-                <br><br>
+                <p>
+                    <img src="images/13.png"></img>
+                </p>
                 
-                <img style="width:100%" src="images/08.png"></img>
+                <p>
+                    <img src="images/14.png"></img>
+                </p>
                 
-                <br><br>
+                <p>
+                    <img src="images/15.png"></img>
+                </p>
                 
-                <img style="width:100%" src="images/09.png"></img>
+                <p>
+                    <img src="images/16.png"></img>
+                </p>
                 
-                <br><br>
+                <p>
+                    <img src="images/17.png"></img>
+                </p>
                 
-                <img style="width:100%" src="images/10.png"></img>
+                <p>
+                    <img src="images/18.png"></img>
+                </p>
                 
-                <br><br>
+                <p>
+                    <img src="images/19.png"></img>
+                </p>
                 
-                <img style="width:100%" src="images/11.png"></img>
-                
-                <br><br>
-                
-                <img style="width:100%" src="images/12.png"></img>
-                
-                <br><br>
-                
-                <img style="width:100%" src="images/13.png"></img>
-                
-                <br><br>
-                
-                <img style="width:100%" src="images/14.png"></img>
-                
-                <br><br>
-                
-                <img style="width:100%" src="images/15.png"></img>
-                
-                <br><br>
-                
-                <img style="width:100%" src="images/16.png"></img>
-                
-                <br><br>
-                
-                <img style="width:100%" src="images/17.png"></img>
-                
-                <br><br>
-                
-                <img style="width:100%" src="images/18.png"></img>
-                
-                <br><br>
-                
-                <img style="width:100%" src="images/19.png"></img>
+                <p>
+                    <img src="images/20.png"></img>
+                </p>
                 
             </div>
         </section>
