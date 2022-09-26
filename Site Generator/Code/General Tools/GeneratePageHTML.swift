@@ -14,6 +14,10 @@ func generatePageHTML(metaData: PageMetaData,
         }
         .joined(separator: "\n")
     
+    let displayTitle = metaData.title
+        .replacingOccurrences(of: "<nobr>", with: "")
+        .replacingOccurrences(of: "</nobr>", with: "")
+    
     return """
     <!DOCTYPE html>
     <html lang="en">
@@ -30,10 +34,10 @@ func generatePageHTML(metaData: PageMetaData,
             <meta property="og:locale:alternate" content="de_DE">
             
             <!-- Title -->
-            <title>\(metaData.title)</title>
-            <meta name="twitter:title" content="\(metaData.title)"/>
-            <meta property="og:title" content="\(metaData.title)"/>
-            <meta property="og:site_name" content="\(metaData.title)"/>
+            <title>\(displayTitle)</title>
+            <meta name="twitter:title" content="\(displayTitle)"/>
+            <meta property="og:title" content="\(displayTitle)"/>
+            <meta property="og:site_name" content="\(displayTitle)"/>
     
             <!-- Author -->
             <meta name="author" content="\(metaData.author)"/>
