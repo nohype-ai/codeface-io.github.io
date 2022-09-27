@@ -1,6 +1,6 @@
 {
   "title" : "Showcase: <nobr>The Architecture</nobr> <nobr>of Apple's</nobr> <nobr>LSP Server</nobr>",
-  "excerpt" : "Visualizations of 20 top-level scopes in Apple's open-source LSP server. Download the .codebase file to open the project yourself in Codeface.",
+  "excerpt" : "We visualized 20 top-level scopes of Apple's open-source LSP server. <a href='posts/visualizing-sourcekit-lsp-in-codeface/SourceKit-LSP.zip' download>Download the .codebase file</a> to open the project yourself in Codeface.",
   "posterImage" : "images/poster.png",
   "date" : {
     "year" : 2022,
