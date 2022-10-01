@@ -1,17 +1,18 @@
+<p>
 LSPService is a free open source webservice that can provide <a href="../../../index.html">Codeface</a> finer granularity and information about actual architecture:
-
-<br><br>
+</p>
 
 <img style="width:100%" src="../../../app/screenshots/01_dark.png"></img>
 
-<br><br>
-
+<p>
 For example, it allows <a href="../../../index.html">Codeface</a> to show the symbols (like classes and functions) and dependencies in your code base.
+</p>
 
 <h2>Download and Run</h2>
 
+<p>
 Simply download LSPService and run it locally on your machine. <a href="../../../index.html">Codeface</a> will automatically detect LSPService and talk to it.
-<br><br>
+</p>
 
 <div style="display:grid;grid-template-columns:50% 50%;column-gap:0%;">
     <div>
@@ -31,29 +32,32 @@ Simply download LSPService and run it locally on your machine. <a href="../../..
     </div>
 </div>
 
-<br><br>
-
+<p>
 On you first attempt to launch LSPService, you'll probably need to confirm that intention via the security settings:
-
-<br>
+</p>
 
 <img style="width:100%" src="images/security_preferences_screenshot.png"></img>
 
+<p>
 LSPService will run in terminal, and as long as it's running there, the service is available. Check <a href="http://localhost:8080">http://localhost:8080</a>.
+</p>
 
 <h2>Add Language Support</h2>
 
+<p>
 If Xcode is installed, LSPService automatically supports <b>Swift packages</b>. Be aware that using LSPService and Codeface on Swift packages, you have to `swift build` your package from the console to update what LSPService and Codeface "can see". This is due to a <a href="https://github.com/apple/sourcekit-lsp#caveats">caveat</a> of <a href="https://github.com/apple/sourcekit-lsp">Apple's LSP server</a>, which is still at an early stage.
+</p>
 
-<br><br>
-
+<p>
 The same LSP server from Apple should also work for Objective-c, C++ and C (see below).
+</p>
 
-<br><br>
-
+<p>
 Generally, you must provide locations of <a href="https://langserver.org">LSP servers</a> for the languages you care about: LSPService creates an LSPServiceConfig.json file on launch if the file doesn't exist yet. If the file exists, LSPService loads server configurations from the file. The JSON structure is quite self-explanatory:
+</p>
 
-<pre><code>{
+<pre><code>
+{
     "swift" : {
         "path" : "/usr/bin/xcrun",
         "arguments" : [
@@ -63,10 +67,13 @@ Generally, you must provide locations of <a href="https://langserver.org">LSP se
             "SOURCEKIT_LOGGING" : "0"
         }
     }
-}</code></pre>
+}</code>
+</pre>
 
+<p>
 Just add language server entries to the file and then restart LSPService. Arguments and environment may of course remain empty.
+</p>
 
-<br><br>
-
+<p>
 In the future, LSPService will help more with installing and locating LSP servers for common languages. Learn more (or even contribute) <a href="https://github.com/flowtoolz/LSPService">on GitHub</a>.
+</p>

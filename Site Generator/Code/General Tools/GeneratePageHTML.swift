@@ -80,9 +80,39 @@ extension String
 {
     func with(newlineIndentations: Int) -> String
     {
-        var newlinePrefix = ""
-        newlineIndentations.times { newlinePrefix += "    " }
-        return replacingOccurrences(of: "\n", with: "\n" + newlinePrefix)
+        var lines = components(separatedBy: .newlines)
+        
+        guard lines.count > 1 else { return self }
+        
+        var linePrefix = ""
+        newlineIndentations.times { linePrefix += "    " }
+        
+        var isPrefixingOn = true
+        
+        for index in 1 ..< lines.count
+        {
+            let line = lines[index]
+            
+            if !isPrefixingOn
+            {
+                if line.contains("</pre>")
+                {
+                    isPrefixingOn = true
+                }
+                else { continue }
+            }
+            else
+            {
+                if line.contains("<pre>")
+                {
+                    isPrefixingOn = false
+                }
+            }
+            
+            lines[index] = linePrefix + line
+        }
+        
+        return lines.joined(separator: "\n")
     }
 }
 
