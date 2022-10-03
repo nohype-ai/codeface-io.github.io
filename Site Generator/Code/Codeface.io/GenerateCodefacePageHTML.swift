@@ -1,4 +1,30 @@
 import Foundation
+import SwiftyToolz
+
+func generateStandardPage(inFolderPath folderPath: String,
+                          withRootPath rootPath: String,
+                          metaData: PageMetaData = .codeface(),
+                          pageCSSFolderPath providedPageCSSFolderPath: String? = nil,
+                          pageContentHTML providedPageContentHTML: String? = nil,
+                          script: String = "",
+                          siteFolder: SiteFolder) throws
+{
+    let pageCSSFolderPath = providedPageCSSFolderPath ?? "blog/"
+    let pageContentHTML = try providedPageContentHTML ?? siteFolder.read(file: folderPath + "index_content.html")
+    
+    let pageFilePath = folderPath + "index.html"
+    
+    let pageHTML = generateCodefacePageHTML(rootPath: rootPath,
+                                            filePathRelativeToRoot: pageFilePath,
+                                            metaData: metaData,
+                                            cssFiles: [rootPath + "codeface.css",
+                                                       rootPath + pageCSSFolderPath + "page_style.css"],
+                                            bodyContentHTML: pageContentHTML,
+                                            script: script)
+    
+    try siteFolder.write(text: pageHTML, toFile: pageFilePath)
+    log("Did write: \(pageFilePath) ✅")
+}
 
 func generateCodefacePageHTML(rootPath: String,
                               filePathRelativeToRoot: String,
@@ -12,7 +38,7 @@ func generateCodefacePageHTML(rootPath: String,
     let footerHTML = generateFooterHTML(rootPath: rootPath)
     let bodyContentHTML = navBarHTML + "\n\n" + bodyContentHTML + "\n\n" + footerHTML
     
-    let rootURL = "https://www.codeface.io"
+    let rootURL = "https://codeface.io"
     let imagePath = imagePathRelativeToRoot ?? "app/icon_1024.png"
     
     let iconLinks =
@@ -83,7 +109,11 @@ func generateFooterHTML(rootPath: String) -> String
         <div>
             <div class="bottom-bar-text-element" style="text-align: left;">
                 <a href="\(rootPath)privacy-policy/index.html">
-                    Codeface Privacy Policy
+                    Privacy Policy
+                </a>
+                <span> • </span>
+                <a href="\(rootPath)imprint/index.html">
+                    Imprint
                 </a>
             </div>
             

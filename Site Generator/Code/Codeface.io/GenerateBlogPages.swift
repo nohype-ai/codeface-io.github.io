@@ -10,18 +10,18 @@ func generateBlogPages(siteFolder: SiteFolder) throws
 
 private func generateBlogPage(siteFolder: SiteFolder) throws
 {
-    let blogPageHTML = try generateBlogPageHTML(siteFolder: siteFolder)
-    let filePath = "blog/index.html"
-    try siteFolder.write(text: blogPageHTML, toFile: filePath)
-    log("Did write: \(filePath) ✅")
+    try generateStandardPage(inFolderPath: "blog/",
+                             withRootPath: "../",
+                             metaData: .codeface(title: "Codeface Blog", ogType: "blog"),
+                             pageContentHTML: try generateBlogPageContentHTML(siteFolder: siteFolder),
+                             siteFolder: siteFolder)
 }
 
-private func generateBlogPageHTML(siteFolder: SiteFolder) throws -> String
+private func generateBlogPageContentHTML(siteFolder: SiteFolder) throws -> String
 {
     let postsFolder = siteFolder.url + "blog/posts"
     
-    let postFolders = FileManager.default.items(inDirectory: postsFolder,
-                                                recursive: false)
+    let postFolders = FileManager.default.items(inDirectory: postsFolder, recursive: false)
     
     let postListHTML: String = postFolders
         .map {
@@ -44,20 +44,13 @@ private func generateBlogPageHTML(siteFolder: SiteFolder) throws -> String
         }
         .joined(separator: "\n\n")
     
-    let contentHTML =
-    """
+    return """
     <section>
         <div class="blog-post-list-wrapper">
             \(postListHTML.with(newlineIndentations: 2))
         </div>
     </section>
     """
-    
-    return generateCodefacePageHTML(rootPath: "../",
-                                    filePathRelativeToRoot: "blog/index.html",
-                                    metaData: .codeface(title: "Codeface Blog", ogType: "blog"),
-                                    cssFiles: ["../codeface.css", "page_style.css"],
-                                    bodyContentHTML: contentHTML)
 }
 
 private func generatePostOverviewHTML(with metaData: PostMetaData, folderName: String) -> String

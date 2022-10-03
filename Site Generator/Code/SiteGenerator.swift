@@ -13,6 +13,7 @@ public struct SiteGenerator
             
             try generateRootPage(siteFolder: siteFolder)
             try generatePrivacyPage(siteFolder: siteFolder)
+            try generateImprintPage(siteFolder: siteFolder)
             try generateBlogPages(siteFolder: siteFolder)
         }
         catch
