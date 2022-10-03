@@ -109,7 +109,7 @@ func generateFooterHTML(rootPath: String) -> String
         <div>
             <div class="bottom-bar-text-element" style="text-align: left;">
                 <a href="\(rootPath)privacy-policy/index.html">
-                    Privacy Policy
+                    Codeface Privacy Policy
                 </a>
                 <span> • </span>
                 <a href="\(rootPath)imprint/index.html">
@@ -125,10 +125,7 @@ func generateFooterHTML(rootPath: String) -> String
             </div>
     
             <div class="bottom-bar-text-element" style="text-align: right;">
-                Copyright &copy; 2022
-                <a href="https://www.flowtoolz.com" target="_blank">
-                    Flowtoolz
-                </a>
+                Copyright &copy; 2022 Sebastian Fichtner
             </div>
         </div>
     </section>
