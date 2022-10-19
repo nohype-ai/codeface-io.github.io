@@ -12,6 +12,7 @@ public struct SiteGenerator
             let siteFolder = try SiteFolder(path: siteFolderPath)
             
             try generateRootPage(siteFolder: siteFolder)
+            try generateDocumentationPage(siteFolder: siteFolder)
             try generatePrivacyPage(siteFolder: siteFolder)
             try generateImprintPage(siteFolder: siteFolder)
             try generateBlogPages(siteFolder: siteFolder)

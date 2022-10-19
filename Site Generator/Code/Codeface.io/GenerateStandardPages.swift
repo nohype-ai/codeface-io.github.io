@@ -19,6 +19,14 @@ func generateRootPage(siteFolder: SiteFolder) throws
                              siteFolder: siteFolder)
 }
 
+func generateDocumentationPage(siteFolder: SiteFolder) throws
+{
+    try generateStandardPage(inFolderPath: "documentation/",
+                             withRootPath: "../",
+                             metaData: .codeface(title: "Codeface Documentation"),
+                             siteFolder: siteFolder)
+}
+
 func generatePrivacyPage(siteFolder: SiteFolder) throws
 {
     try generateStandardPage(inFolderPath: "privacy-policy/",

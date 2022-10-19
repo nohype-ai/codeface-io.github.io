@@ -74,7 +74,7 @@ extension PageMetaData
               ogType: ogType)
     }
     
-    static let defaultKeywords = "macOS, Swift, software architecture, app, codeface, codebase"
+    static let defaultKeywords = "macOS, Swift, software architecture, app, codeface, codebase, code analysis, static code analysis, architecture analysis, software analytics"
 }
 
 func generateNavigationBarHTML(rootPath: String) -> String
