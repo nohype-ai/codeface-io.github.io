@@ -74,27 +74,79 @@
                 <h1>Codeface Documentation</h1>
                 
                 <p>
-                ⚠️ <i>This page is still new and continuously growing. Latest update: Oct 20, 2022</i>
+                ⚠️ <i>This page is still new and continuously growing. Latest update: Oct 21, 2022</i>
                 </p>
                 
-                <h2>What If I Don't Want to Read an FAQ?</h2>
+                <h2>General Questions</h2>
+                
+                <h3>📕 What If I Don't Want to Read an FAQ?</h3>
                 <p>
                 You can always write at <a href="mailto:hello@codeface.io">hello@codeface.io</a> to get personal support.
                 </p>
                 
-                <h2>What Does Codeface Do Exactly?</h2>
+                <h3>📕 What Does Codeface Do Exactly?</h3>
                 <p>
-                Have a look at <a href="../blog/posts/visualizing-sourcekit-lsp-in-codeface">this showcase</a>.
+                Have a look at <a href="../blog/posts/visualizing-sourcekit-lsp-in-codeface/index.html">this showcase</a>.
                 </p>
                 
-                <h2>How Can I Try It Out Quickly?</h2>
+                <h3>📕 How Can I Try It Out Quickly?</h3>
                 <p>
-                Install Codeface <a href="https://apps.apple.com/app/codeface/id1578175415" target="_blank">from the Mac App Store</a>. Then download and open <a href="../blog/posts/try-codeface-with-codebase-files-to-download">one of theses files</a>.
+                Install Codeface <a href="https://apps.apple.com/app/codeface/id1578175415" target="_blank">from the Mac App Store</a>. Then download and open <a href="../blog/posts/try-codeface-with-codebase-files-to-download/index.html">one of theses files</a>.
                 </p>
                 
-                <h2>How Does LSPService Work?</h2>
+                <h2>General Trouble Shooting</h2>
+                
+                <h3>📕 Why Do I Not See Any Arrows?</h3>
                 <p>
-                Have a look at <a href="../blog/posts/using-lsp-servers-in-codeface-via-lspservice">this tutorial</a>.
+                To see dependency arrows and symbols, Codeface must talk to LSPService while importing a code folder. LSPService is a free open-source webservice that you can download and run on your machine. It can launch LSP servers and thereby provide Codeface detailed information about codebases of virtually all languages.
+                </p>
+                
+                <p>
+                <a href="../blog/posts/using-lsp-servers-in-codeface-via-lspservice/index.html">This tutorial</a> describes how to setup and use LSPService.
+                </p>
+                
+                <h3>📕 Why Do I Even Need LSPService? That's Cumbersome!</h3>
+                <p>
+                And indeed it is more cumbersome than we would have liked. Because of the App Store rules, it took a lot of work to make an app that uses LSP servers available in the App Store at all.
+                </p>
+                <p>
+                We're already working on a way to launch LSP servers directly without requiring LSPService, but that’s non-trivial for App Store apps and will take some time to get working. Because of that, significant new features are currently all on hold.
+                </p>
+                
+                <h3>📕 How Does LSPService Work?</h3>
+                <p>
+                Have a look at <a href="../blog/posts/using-lsp-servers-in-codeface-via-lspservice/index.html">this tutorial</a>.
+                </p>
+                
+                <h3>📕 Why Does The Code Import Take So Long?</h3>
+                <p>
+                When using an LSP server, importing larger codebases does indeed take long because requests to LSP servers <a href="https://forums.swift.org/t/sourcekitservice-only-using-50-of-cpu/53747" target="_blank">can not generally be made in parallel</a>.
+                </p>
+                <p>
+                You can accelerate loading a codebase visualization again by saving it to a .codebase file. Such a file stores a whole codebase, including all the data retrieved from an LSP server. Loading a codebase from file is much faster. So when you don't need to update the visualization, you can open it in Codeface without waiting for the LSP server.
+                </p>
+                
+                <h2>Trouble Shooting For Swift Code</h2>
+                
+                <h3>📕 Why Can I Not Visualize My Xcode Project?</h3>
+                <p>
+                Codeface can import any code folder. But it can <b>not</b> open, import or otherwise know anything about Xcode projects. This is because <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server</a> does not support Xcode projects but only <a href="https://www.swift.org/package-manager" target="_blank">Swift packages</a>.
+                </p>
+                
+                <p>
+                We suspect that <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server</a> will never support Xcode projects but that instead the <a href="https://www.swift.org/package-manager" target="_blank">Swift Package Manager</a> might some day support app targets and thereby more or less replace Xcode project files.
+                </p>
+                
+                <p>
+                If your code is in an Xcode project, you can use a little "trick" to visualize it: Extract as much of it as possible into one or multiple local Swift packages. Many developers do that anyway to speed up compiles and to manifest/enforce architectural boundaries.
+                </p>
+                
+                <h3>📕 Why Is My Swift Package Not Visualized Correctly?</h3>
+                <p>
+                As described in <a href="../blog/posts/using-lsp-servers-in-codeface-via-lspservice/index.html">this tutorial</a> under "Add Language Support", you have to <code>`swift build`</code> the package from the terminal before importing it into a Codebase file. This will update what <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server</a> can "see" during the import.
+                </p>
+                <p>
+                Sometimes, it's also necessary to delete the hidden ".build" folder inside the package folder before building the package. You can show and hide hidden files on macOS via shift + ⌘ + . (Shift + Command + Dot).
                 </p>
             </div>
         </section>
