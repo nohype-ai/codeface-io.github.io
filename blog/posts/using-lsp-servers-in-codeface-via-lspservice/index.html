@@ -124,7 +124,12 @@
                 <h2>Add Language Support</h2>
                 
                 <p>
-                If Xcode is installed, LSPService automatically supports <b>Swift packages</b>. Be aware that using LSPService and Codeface on Swift packages, you have to `swift build` your package from the console to update what LSPService and Codeface "can see". This is due to a <a href="https://github.com/apple/sourcekit-lsp#caveats">caveat</a> of <a href="https://github.com/apple/sourcekit-lsp">Apple's LSP server</a>, which is still at an early stage.
+                If Xcode is installed, LSPService automatically finds <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server (SourceKit-LSP)</a>, which supports Swift code. Using it with Swift code, you have to be aware of a few things:
+                <ul>
+                    <li>SourceKit-LSP supports Swift Packages but not Xcode projects.</li>
+                    <li>To update what SourceKit-LSP can "see", you have to <code>`swift build`</code> the package from the console before importing it into a Codeface file. This is due to a <a href="https://github.com/apple/sourcekit-lsp#caveats">caveat</a> of SourceKit-LSP, which is still at an early stage.</li>
+                    <li>Sometimes, deleting the hidden ".build" folder within the package before building it helps to update everything. You can show and hide hidden files on macOS via shift + ⌘ + . (Shift + Command + Dot).</li>
+                </ul>
                 </p>
                 
                 <p>
