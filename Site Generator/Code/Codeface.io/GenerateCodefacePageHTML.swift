@@ -87,6 +87,8 @@ func generateNavigationBarHTML(rootPath: String) -> String
             </a>
     
             <a class="left subtle-link" href="\(rootPath)blog/index.html">Blog</a>
+    
+            <a class="left subtle-link" href="\(rootPath)documentation/index.html">Documentation</a>
                 
             <a class="left subtle-link" href="\(rootPath)index.html#contact">Contact</a>
             
