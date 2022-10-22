@@ -198,17 +198,17 @@ section.codeface-bar > div
     padding-right: 0px;
 }
 
-@media only screen and (max-width: 570px) {
+@media only screen and (max-width: 680px) {
     #logo {
-        padding-right: 10px;
+        padding-right: 15px;
     }
     
     .left {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     
-    #call-to-action {
+    .hide-on-narrow-screens {
         display: none;
     }
 }

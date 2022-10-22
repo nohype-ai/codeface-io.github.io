@@ -90,9 +90,9 @@ func generateNavigationBarHTML(rootPath: String) -> String
     
             <a class="left subtle-link" href="\(rootPath)documentation/index.html">Documentation</a>
                 
-            <a class="left subtle-link" href="\(rootPath)index.html#contact">Contact</a>
+            <a class="left subtle-link hide-on-narrow-screens" href="\(rootPath)index.html#contact">Contact</a>
             
-            <a id="call-to-action"
+            <a id="call-to-action" class="hide-on-narrow-screens"
                 href="https://apps.apple.com/app/codeface/id1578175415"
                 target="_blank">
                 <img style="width:180px"
