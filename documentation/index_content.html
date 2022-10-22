@@ -3,7 +3,7 @@
         <h1>Codeface Documentation</h1>
         
         <p>
-        ⚠️ <i>This page is still new and continuously growing. Latest update: Oct 21, 2022</i>
+        ⚠️ <i>This page is still new and continuously growing. Latest update: Oct 22, 2022</i>
         </p>
         
         <h2>General Questions</h2>
@@ -34,17 +34,21 @@
         <a href="../blog/posts/using-lsp-servers-in-codeface-via-lspservice/index.html">This tutorial</a> describes how to setup and use LSPService.
         </p>
         
+        <p>
+        Note that automatic Swift support only works for Swift packages, since <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server</a> does not support Xcode projects. More on <a href="#swift">trouble shooting for Swift code is down here</a>.
+        </p>
+        
+        <h3>📕 How Does LSPService Work?</h3>
+        <p>
+        Have a look at <a href="../blog/posts/using-lsp-servers-in-codeface-via-lspservice/index.html">this tutorial</a>.
+        </p>
+        
         <h3>📕 Why Do I Even Need LSPService? That's Cumbersome!</h3>
         <p>
         And indeed it is more cumbersome than we would have liked. Because of the App Store rules, it took a lot of work to make Codeface available in the App Store at all without losing its ability to leverage LSP servers.
         </p>
         <p>
         We're already working on a way to launch LSP servers directly without requiring LSPService, but that’s non-trivial for App Store apps and will take some time to get working. Because of that, significant new features are currently all on hold.
-        </p>
-        
-        <h3>📕 How Does LSPService Work?</h3>
-        <p>
-        Have a look at <a href="../blog/posts/using-lsp-servers-in-codeface-via-lspservice/index.html">this tutorial</a>.
         </p>
         
         <h3>📕 Why Does The Code Import Take So Long?</h3>
@@ -55,7 +59,7 @@
         You can accelerate loading a codebase visualization again by saving it to a .codebase file. Such a file stores a whole codebase, including all the data retrieved from an LSP server. Loading a codebase from file is much faster. So when you don't need to update the visualization, you can open it in Codeface without waiting for the LSP server.
         </p>
         
-        <h2>Trouble Shooting For Swift Code</h2>
+        <h2 id="swift">Trouble Shooting For Swift Code</h2>
         
         <h3>📕 Why Can I Not Visualize My Xcode Project?</h3>
         <p>
