@@ -3,7 +3,7 @@
         <h1>Codeface Documentation</h1>
         
         <p>
-        ⚠️ <i>This page is still new and continuously growing. Latest update: Oct 22, 2022</i>
+        ⚠️ <i>This page is still new and continuously growing. Latest update: Oct 24, 2022</i>
         </p>
         
         <h2>General Questions</h2>
@@ -71,12 +71,12 @@
         </p>
         
         <p>
-        If your code is in an Xcode project, you can use a little "trick" to visualize it: Extract as much of it as possible into one or multiple local Swift packages. Many developers do that anyway to speed up compiles and to manifest/enforce architectural boundaries.
+        If your code is in an Xcode project, you can use a little "trick" to visualize it: Extract as much of it as possible into one or multiple <a href="https://developer.apple.com/documentation/xcode/organizing-your-code-with-local-packages" target="_blank">local Swift packages</a>. Many developers do that anyway to speed up compiles and to manifest/enforce architectural boundaries.
         </p>
         
         <h3>📕 Why Is My Swift Package Not Visualized Correctly?</h3>
         <p>
-        As described in <a href="../blog/posts/using-lsp-servers-in-codeface-via-lspservice/index.html">this tutorial</a> under "Add Language Support", you have to <code>`swift build`</code> the package from the terminal before importing it into a Codebase file. This will update what <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server</a> can "see" during the import.
+        As described in <a href="../blog/posts/using-lsp-servers-in-codeface-via-lspservice/index.html">this tutorial</a> under "Add Language Support", you have to <code>`swift build`</code> the package from the terminal before importing it into a .codebase file. This will update what <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server</a> can "see" during the import.
         </p>
         <p>
         Sometimes, it's also necessary to delete the hidden ".build" folder inside the package folder before building the package. You can show and hide hidden files on macOS via shift + ⌘ + . (Shift + Command + Dot).
