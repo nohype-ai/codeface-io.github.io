@@ -11,7 +11,7 @@ For example, it allows <a href="../../../index.html">Codeface</a> to show the sy
 <h2>Download and Run</h2>
 
 <p>
-Simply download LSPService and run it locally on your machine. <a href="../../../index.html">Codeface</a> will automatically detect LSPService and talk to it.
+Simply download LSPService and run it locally on your machine. During a codebase import, <a href="../../../index.html">Codeface</a> will automatically detect LSPService and talk to it.
 </p>
 
 <div style="display:grid;grid-template-columns:50% 50%;column-gap:0%;">
@@ -45,21 +45,9 @@ LSPService will run in terminal, and as long as it's running there, the service 
 <h2>Add Language Support</h2>
 
 <p>
-If Xcode is installed, LSPService automatically finds <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server (SourceKit-LSP)</a>, which supports Swift code. Using it with Swift code, you have to be aware of a few things:
-<ul>
-    <li>SourceKit-LSP supports Swift Packages but not Xcode projects.</li>
-    <li>To update what SourceKit-LSP can "see", you have to <code>`swift build`</code> the package from the terminal before importing it into a Codeface file. This is due to a <a href="https://github.com/apple/sourcekit-lsp#caveats">caveat</a> of SourceKit-LSP, which is still at an early stage.</li>
-    <li>Sometimes, deleting the hidden ".build" folder within the package before building it helps to update everything. You can show and hide hidden files on macOS via shift + ⌘ + . (Shift + Command + Dot).</li>
-</ul>
-</p>
-
+    Generally, you must provide locations of <a href="https://langserver.org">LSP servers</a> for the languages you care about: LSPService creates an LSPServiceConfig.json file on launch if the file doesn't exist yet. If the file exists, LSPService loads server configurations from the file. The JSON structure is quite self-explanatory. Here's an example with one entry to support Swift:
+    </p>
 <p>
-The same LSP server from Apple should also work for Objective-c, C++ and C (see below).
-</p>
-
-<p>
-Generally, you must provide locations of <a href="https://langserver.org">LSP servers</a> for the languages you care about: LSPService creates an LSPServiceConfig.json file on launch if the file doesn't exist yet. If the file exists, LSPService loads server configurations from the file. The JSON structure is quite self-explanatory:
-</p>
 
 <pre><code>
 {
@@ -76,9 +64,28 @@ Generally, you must provide locations of <a href="https://langserver.org">LSP se
 </pre>
 
 <p>
-Just add language server entries to the file and then restart LSPService. Arguments and environment may of course remain empty.
+    Just add language server entries to the file and then restart LSPService. Arguments and environment may of course remain empty, depending on the LSP server.
 </p>
 
 <p>
-In the future, LSPService will help more with installing and locating LSP servers for common languages. Learn more (or even contribute) <a href="https://github.com/flowtoolz/LSPService">on GitHub</a>.
+    It's important to note that every language eco system (including its language server implementation) is different. Setting up and using an LSP server unfortunately sometimes still requires quite intricate knowledge of the respective eco system.
+</p>
+
+<p>
+    Generally, we can say this:
+    
+    <ul>
+        <li>It's often necessary to build a project (or ensure it runs) before analyzing it, because language servers typically rely on build products or other intermediate results of the build process. Building generally ensures that all the language's infrastructure is in place for the particular project.</li>
+        <li>The server needs to support requests for document symbols and symbol references.</li>
+        <li>Some servers require specific arguments or environment variables.</li>
+        <li>Some servers deviate in subtle but fatal ways from the LSP standard. If you let us know of these quirks, we can adapt Codeface to them.</li>
+    </ul>
+</p>
+
+<p>
+    Tips on supporting specific languages are being gathered <a href="../../../documentation/index.html">over here in the documentation</a>.
+</p>
+
+<p>
+    In the future, Codecace/LSPService will help more with installing and locating LSP servers for common languages. Learn more (or even contribute) <a href="https://github.com/flowtoolz/LSPService">on GitHub</a>.
 </p>

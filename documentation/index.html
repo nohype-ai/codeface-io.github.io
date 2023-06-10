@@ -76,7 +76,7 @@
                 <h1>Codeface Documentation</h1>
                 
                 <p>
-                ⚠️ <i>This page is still new and continuously growing. Latest update: March 6, 2023</i>
+                ⚠️ <i>This page is still new and continuously growing. Latest update: June 10, 2023</i>
                 </p>
                 
                 <h2>General Questions</h2>
@@ -96,7 +96,7 @@
                 Install Codeface <a href="https://apps.apple.com/app/codeface/id1578175415" target="_blank">from the Mac App Store</a>. Then download and open <a href="../blog/posts/try-codeface-with-codebase-files-to-download/index.html">one of theses files</a>.
                 </p>
                 
-                <h2>General Trouble Shooting</h2>
+                <h2>Language Support Via LSP and LSPService</h2>
                 
                 <h3>📕 Why Do I Not See Any Arrows?</h3>
                 <p>
@@ -108,7 +108,11 @@
                 </p>
                 
                 <p>
-                Note that automatic Swift support only works for Swift packages, since <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server</a> does not support Xcode projects. More on <a href="#swift">trouble shooting for Swift code is down here</a>.
+                Note that automatic Swift support only works for Swift packages, since <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server</a> does not support Xcode projects. <a href="#swift">More on Swift support is down here</a>.
+                </p>
+        
+                <p>
+                And <a href="#dart">more on Dart (Flutter-) support is down here</a>.
                 </p>
                 
                 <h3>📕 How Does LSPService Work?</h3>
@@ -132,7 +136,23 @@
                 You can accelerate loading a codebase visualization again by saving it to a .codebase file. Such a file stores a whole codebase, including all the data retrieved from an LSP server. Loading a codebase from file is much faster. So when you don't need to update the visualization, you can open it in Codeface without waiting for the LSP server.
                 </p>
                 
-                <h2 id="swift">Trouble Shooting For Swift Code</h2>
+                <h2 id="swift">Language Support For Swift</h2>
+        
+                <h3>📕 How Do I Setup the Swift LSP Server?</h3>
+        
+                <p>
+                If Xcode is installed, LSPService automatically finds <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server (SourceKit-LSP)</a>, which supports Swift code. Using it with Swift code, you have to be aware of a few things:
+        
+                <ul>
+                    <li>SourceKit-LSP supports Swift Packages but not Xcode projects.</li>
+                    <li>To update what SourceKit-LSP can "see", you have to <code>`swift build`</code> the package from the terminal before importing it into a Codeface file. This is due to a <a href="https://github.com/apple/sourcekit-lsp#caveats">caveat</a> of SourceKit-LSP, which is still at an early stage.</li>
+                    <li>Sometimes, deleting the hidden ".build" folder within the package before building it helps to update everything. You can show and hide hidden files on macOS via shift + ⌘ + . (Shift + Command + Dot).</li>
+                </ul>
+                </p>
+        
+                <p>
+                The same LSP server from Apple should also work for Objective-c, C++ and C.
+                </p>
                 
                 <h3>📕 Why Can I Not Visualize My Xcode Project?</h3>
                 <p>
@@ -149,11 +169,36 @@
                 
                 <h3>📕 Why Is My Swift Package Not Visualized Correctly?</h3>
                 <p>
-                As described in <a href="../blog/posts/using-lsp-servers-in-codeface-via-lspservice/index.html">this tutorial</a> under "Add Language Support", you have to <code>`swift build`</code> the package from the terminal before importing it into a .codebase file. This will update what <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server</a> can "see" during the import.
+                As described above, you have to <code>`swift build`</code> the package from the terminal before importing it into a .codebase file. This will update what <a href="https://github.com/apple/sourcekit-lsp" target="_blank">Apple's LSP server</a> can "see" during the import.
                 </p>
                 <p>
                 Sometimes, it's also necessary to delete the hidden ".build" folder inside the package folder before building the package. You can show and hide hidden files on macOS via shift + ⌘ + . (Shift + Command + Dot).
                 </p>
+        
+                <h2 id="dart">Language Support for Dart (Flutter)</h2>
+        
+                <h3>📕 How Do I Setup the Dart LSP Server?</h3>
+                
+                <p>
+                Dart includes an <a href="https://github.com/dart-lang/sdk/tree/main/pkg/analysis_server/tool/lsp_spec" target="_blank">official Dart language server</a>. When Dart is installed (possibly as part of Flutter), you should be able to launch its language server via <code>`dart language-server`</code>. It seems the client id and -version arguments are not required.
+                </p>
+        
+                <p>
+                When adding an entry for Dart into the LSPServiceConfig.json file, you need to provide the full path to Dart. You can determine that path via the shell command <code>`which dart`</code>. The entry may then look something like this:
+                </p>
+        
+        <pre><code>
+"dart" : {
+    "path" : "/Users/seb/Desktop/flutter/bin/dart",
+    "arguments" : [
+        "language-server"
+    ],
+    "environment" : {}
+}</code>
+        </pre>
+        
+            <p>
+            As with most languages, it is important to build a Dart-/Flutter project before importing it into a Codeface file.
             </div>
         </section>
         
