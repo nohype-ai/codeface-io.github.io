@@ -76,7 +76,7 @@
                 <h1>Codeface Documentation</h1>
                 
                 <p>
-                ⚠️ <i>This page is still new and continuously growing. Latest update: June 28, 2023</i>
+                ⚠️ <i>This page is still new and continuously growing. Latest update: August 1st, 2023</i>
                 </p>
                 
                 <h2>General Questions</h2>
@@ -145,7 +145,7 @@
         
                 <ul>
                     <li>SourceKit-LSP supports Swift Packages but not Xcode projects.</li>
-                    <li>To update what SourceKit-LSP can "see", you have to <code>`swift build`</code> the package from the terminal before importing it into a Codeface file. This is due to a <a href="https://github.com/apple/sourcekit-lsp#caveats">caveat</a> of SourceKit-LSP, which is still at an early stage.</li>
+                    <li>To update what SourceKit-LSP can "see", you have to <code>`swift build`</code> the package from the terminal before importing it into a Codeface file. This is due to a <a href="https://github.com/apple/sourcekit-lsp#caveats">caveat</a> of SourceKit-LSP, which is still at an early stage. If the package contains a test target, you also need to build test, for instance via <code>`swift test`</code>, to see the dependencies originating from the tests.</li>
                     <li>Sometimes, deleting the hidden ".build" folder within the package before building it helps to update everything. You can show and hide hidden files on macOS via shift + ⌘ + . (Shift + Command + Dot).</li>
                 </ul>
                 </p>
