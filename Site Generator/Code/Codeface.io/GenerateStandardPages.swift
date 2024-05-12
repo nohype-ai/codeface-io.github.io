@@ -40,3 +40,10 @@ func generateImprintPage(siteFolder: SiteFolder) throws
                              withRootPath: "../",
                              siteFolder: siteFolder)
 }
+
+func generateInvestmentsAppPrivacyPage(siteFolder: SiteFolder) throws
+{
+    try generateStandardPage(inFolderPath: "investments-app/privacy-policy/",
+                             withRootPath: "../../",
+                             siteFolder: siteFolder)
+}

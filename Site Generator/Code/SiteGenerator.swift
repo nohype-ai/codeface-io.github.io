@@ -16,6 +16,8 @@ public struct SiteGenerator
             try generatePrivacyPage(siteFolder: siteFolder)
             try generateImprintPage(siteFolder: siteFolder)
             try generateBlogPages(siteFolder: siteFolder)
+            
+            try generateInvestmentsAppPrivacyPage(siteFolder: siteFolder)
         }
         catch
         {
