@@ -47,3 +47,10 @@ func generateInvestmentsAppPrivacyPage(siteFolder: SiteFolder) throws
                              withRootPath: "../../",
                              siteFolder: siteFolder)
 }
+
+func generateXHaleAppPrivacyPage(siteFolder: SiteFolder) throws
+{
+    try generateStandardPage(inFolderPath: "xHale/privacy-policy/",
+                             withRootPath: "../../",
+                             siteFolder: siteFolder)
+}
