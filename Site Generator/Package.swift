@@ -10,12 +10,12 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(
-            url: "https://github.com/flowtoolz/FoundationToolz.git",
-            branch: "master"
+            url: "https://github.com/nohype-ai/FoundationToolz.git",
+            exact: "0.5.9"
         ),
         .package(
-            url: "https://github.com/flowtoolz/SwiftyToolz.git",
-            branch: "master"
+            url: "https://github.com/nohype-ai/SwiftyToolz.git",
+            exact: "0.5.7"
         )
     ],
     targets: [

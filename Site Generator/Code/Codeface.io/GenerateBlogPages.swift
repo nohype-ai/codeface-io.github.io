@@ -27,7 +27,10 @@ private func generateBlogPageContentHTML(siteFolder: SiteFolder) throws -> Strin
         .map {
             
             let metaDataFile = $0 + postMetaDataFileName
-            let postMetaData = PostMetaData(from: metaDataFile)
+            
+            let postMetaData = try? PostMetaData(
+                fromJSONFile: metaDataFile
+            )
             
             if postMetaData == nil
             {
@@ -95,7 +98,10 @@ private func generateBlogPostPages(siteFolderURL: URL) throws
         }
         
         let postMetaDataFile = postFolder + postMetaDataFileName
-        let postMetaData = PostMetaData(from: postMetaDataFile)
+        
+        let postMetaData = try? PostMetaData(
+            fromJSONFile: postMetaDataFile
+        )
         
         if postMetaData == nil
         {

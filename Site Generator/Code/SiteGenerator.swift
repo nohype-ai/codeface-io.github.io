@@ -8,11 +8,11 @@ public struct SiteGenerator
     {
         do
         {
-            let siteFolderPath = "/Users/seb/Desktop/Repos/nohype-ai/websites/codeface-io.github.io"
+            let siteFolderPath = "/Users/seb/Desktop/Repos/nohype-ai/apps/codeface-io.github.io"
             let siteFolder = try SiteFolder(path: siteFolderPath)
             
             try generateRootPage(siteFolder: siteFolder)
-            try generateDocumentationPage(siteFolder: siteFolder)
+//            try generateDocumentationPage(siteFolder: siteFolder)
             try generatePrivacyPage(siteFolder: siteFolder)
             try generateImprintPage(siteFolder: siteFolder)
             try generateBlogPages(siteFolder: siteFolder)
