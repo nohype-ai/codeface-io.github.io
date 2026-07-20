@@ -125,7 +125,7 @@ func generateFooterHTML(rootPath: String) -> String
             </div>
     
             <div class="bottom-bar-text-element" style="text-align: right;">
-                Copyright &copy; 2022 Sebastian Fichtner
+                Copyright &copy; 2026 Nohype AI GmbH
             </div>
         </div>
     </section>
